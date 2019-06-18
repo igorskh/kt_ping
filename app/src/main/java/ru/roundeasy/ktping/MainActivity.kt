@@ -11,10 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.ref.WeakReference
-import java.util.concurrent.TimeUnit
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-
 
 class MainActivity : AppCompatActivity() {
     private val outerClass = WeakReference<MainActivity>(this)
