@@ -1,5 +1,7 @@
 # Ping for Android in Kotlin
 
+[![CircleCI](https://circleci.com/gh/igorskh/kt_ping.svg?style=svg)](https://circleci.com/gh/igorskh/kt_ping)
+
 WORK IN PROGRESS
 
 ## Description
