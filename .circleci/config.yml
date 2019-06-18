@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only: master
+    docker:
+      - image: mingc/android-build-box:latest
+    steps:
+      - checkout
+      - run: chmod +x gradlew 
+      - run: ./gradlew assembleDebug
+      - store_artifacts:
+          path: app/build/outputs/apk/debug/app-debug.apk
+          destination: kt_ping.apk
