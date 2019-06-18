@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">KtPing</string>
+    <string name="btn_start">Ping</string>
+    <string name="btn_stop">Stop</string>
+    <string name="label_timestamp">Timestamp</string>
+    <string name="label_size">Size</string>
+    <string name="label_target">Target</string>
+    <string name="label_sequence_number">Seq #</string>
+    <string name="label_ttl">TTL</string>
+    <string name="label_rtt">RTT</string>
+    <string name="label_server">Server</string>
+    <string name="label_interval">Interval</string>
+    <string name="value_default_server">8.8.8.8</string>
+</resources>

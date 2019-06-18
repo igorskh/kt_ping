@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:layout_marginStart="0dp"
+          android:layout_marginEnd="0dp"
+          app:layout_constraintTop_toTopOf="parent">
+    <TextView
+            android:text="@string/label_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvTimestamp" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+    <TextView
+            android:text="@string/label_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvSize" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+    <TextView
+            android:text="@string/label_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvTarget" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+    <TextView
+            android:text="@string/label_sequence_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvSeqN" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+    <TextView
+            android:text="@string/label_ttl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvTtl" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+    <TextView
+            android:text="@string/label_rtt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/tvRtt" android:layout_weight="1"
+            app:autoSizeTextType="uniform"/>
+</TableRow>
