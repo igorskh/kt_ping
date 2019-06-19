@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: chmod +x gradlew 
       - run: ./gradlew assembleDebug
+      - run: ./gradlew lint
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: kt_ping.apk
