@@ -11,4 +11,5 @@
     <string name="label_server">Server</string>
     <string name="label_interval">Interval</string>
     <string name="value_default_server">8.8.8.8</string>
+    <string name="format_rtt">%1$s %2$s</string>
 </resources>
