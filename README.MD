@@ -1,6 +1,7 @@
 # Ping for Android in Kotlin
 
 [![CircleCI](https://circleci.com/gh/igorskh/kt_ping.svg?style=svg)](https://circleci.com/gh/igorskh/kt_ping)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/66032728618f467990c4a6d60abdced0)](https://www.codacy.com/app/igorskh/kt_ping?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=igorskh/kt_ping&amp;utm_campaign=Badge_Grade)
 
 WORK IN PROGRESS
 
