@@ -3,6 +3,7 @@
     <string name="btn_start">Ping</string>
     <string name="btn_stop">Stop</string>
     <string name="label_timestamp">Timestamp</string>
+    <string name="label_count">Count</string>
     <string name="label_size">Size</string>
     <string name="label_target">Target</string>
     <string name="label_sequence_number">Seq #</string>
@@ -11,5 +12,11 @@
     <string name="label_server">Server</string>
     <string name="label_interval">Interval</string>
     <string name="value_default_server">8.8.8.8</string>
+    <string name="value_na">N/A</string>
     <string name="format_rtt">%1$s %2$s</string>
+    <string name="error_uncaught">Uncaught exception</string>
+    <string name="datetime_format">HH:mm:ss.SSS</string>
+    <string name="default_count">5</string>
+
+
 </resources>

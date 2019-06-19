@@ -15,7 +15,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/linearLayout" android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
         <EditText
-                android:layout_width="0dp" android:layout_weight="0.5"
+                android:layout_width="0dp" android:layout_weight="1"
                 android:layout_height="40dp"
                 android:ems="10"
                 android:id="@+id/textServer" android:textSize="12sp" android:singleLine="true"
@@ -35,6 +35,13 @@
                 android:id="@+id/textInterval" android:textSize="12sp" android:singleLine="true"
                 android:hint="@string/label_interval"
                 android:autofillHints="@string/label_interval" android:inputType="numberDecimal"/>
+        <EditText
+                android:layout_width="0dp" android:layout_weight="0.5"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:id="@+id/textCount" android:textSize="12sp" android:singleLine="true"
+                android:hint="@string/label_count"
+                android:autofillHints="@string/label_count" android:inputType="number" android:text="@string/default_count"/>
         <Button
                 android:text="@string/btn_start"
                 android:layout_width="0dp"
