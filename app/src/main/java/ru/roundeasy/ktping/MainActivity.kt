@@ -14,6 +14,11 @@ import java.lang.ref.WeakReference
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
+/**
+ * A Main Activity class
+ *
+ * This class contains the main logic of the app
+ */
 class MainActivity : AppCompatActivity() {
     private val outerClass = WeakReference<MainActivity>(this)
     private var mHandlerThread = MyHandler(outerClass)
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         private const val PING = 102
     }
 
-    class MyHandler(private val outerClass: WeakReference<MainActivity>) : Handler() {
+    private class MyHandler(private val outerClass: WeakReference<MainActivity>) : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             when {
@@ -58,18 +63,18 @@ class MainActivity : AppCompatActivity() {
         row.layoutParams = TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT)
 
         val rowView = layoutInflater.inflate(R.layout.result_row, tableLayout, false)
-        val tvTimestamp = rowView.findViewById(R.id.tvTimestamp) as TextView
-        val tvSize = rowView.findViewById(R.id.tvSize) as TextView
-        val tvTarget = rowView.findViewById(R.id.tvTarget) as TextView
-        val tvSeqN = rowView.findViewById(R.id.tvSeqN) as TextView
-        val tvTtl = rowView.findViewById(R.id.tvTtl) as TextView
-        val tvRtt = rowView.findViewById(R.id.tvRtt) as TextView
-        tvTimestamp.text = res.group(1)
-        tvSize.text = res.group(2)
-        tvTarget.text =res.group(3)
-        tvSeqN.text = res.group(4)
-        tvTtl.text = res.group(5)
-        tvRtt.text = resources.getString(R.string.format_rtt, res.group(6), res.group(7))
+        val tvTimestamp = rowView.findViewById(R.id.tvTimestamp) as? TextView
+        val tvSize = rowView.findViewById(R.id.tvSize) as? TextView
+        val tvTarget = rowView.findViewById(R.id.tvTarget) as? TextView
+        val tvSeqN = rowView.findViewById(R.id.tvSeqN) as? TextView
+        val tvTtl = rowView.findViewById(R.id.tvTtl) as? TextView
+        val tvRtt = rowView.findViewById(R.id.tvRtt) as? TextView
+        tvTimestamp?.text = res.group(1)
+        tvSize?.text = res.group(2)
+        tvTarget?.text =res.group(3)
+        tvSeqN?.text = res.group(4)
+        tvTtl?.text = res.group(5)
+        tvRtt?.text = resources.getString(R.string.format_rtt, res.group(6), res.group(7))
         tableLayout.addView(rowView, 1)
     }
 
