@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.widget.EditText
 import android.widget.TableRow
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.ref.WeakReference
 import java.util.regex.Matcher
@@ -36,6 +38,43 @@ class MainActivity : AppCompatActivity() {
         private const val START = 100
         private const val STOP = 101
         private const val PING = 102
+    }
+
+    object Params {
+        var server = "8.8.8.8"
+        var size = 16
+        var interval = 1.0
+        var count = 5
+    }
+
+    private var params = Params
+
+    private fun showSettingsPopup() {
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.alert_dialog_settings, null)
+
+        val serverText  = dialogLayout.findViewById<EditText>(R.id.addressText)
+        val sizeText  = dialogLayout.findViewById<EditText>(R.id.sizeText)
+        val intervalText  = dialogLayout.findViewById<EditText>(R.id.intervalText)
+        val countText  = dialogLayout.findViewById<EditText>(R.id.countText)
+
+        serverText.setText(params.server)
+        sizeText.setText(params.size.toString())
+        intervalText.setText(params.interval.toString())
+        countText.setText(params.count.toString())
+
+        builder.setView(dialogLayout)
+        builder.setPositiveButton("OK") {
+                _, _ ->
+            params.server = serverText.text.toString()
+            params.size = sizeText.text.toString().toInt()
+            params.interval = intervalText.text.toString().toDouble()
+            params.count = countText.text.toString().toInt()
+
+            syncServerText()
+        }
+        builder.show()
     }
 
     private class MyHandler(private val outerClass: WeakReference<MainActivity>) : Handler() {
@@ -102,22 +141,17 @@ class MainActivity : AppCompatActivity() {
 
     internal inner class PingProcess : Runnable {
         override fun run() {
-            val serverAddr = textServer.text.toString()
-            val size = textSize.text.toString()
-            val interval = textInterval.text.toString()
-            val count = textCount.text.toString()
-
             val cmd = mutableListOf("ping", "-D")
-            if (size != "") {
-                cmd.addAll(arrayOf("-s", size))
+            if (params.size > 0) {
+                cmd.addAll(arrayOf("-s", params.size.toString()))
             }
-            if (interval != "") {
-                cmd.addAll(arrayOf("-i", interval))
+            if (params.interval > 0) {
+                cmd.addAll(arrayOf("-i", params.interval.toString()))
             }
-            if (count != "") {
-                cmd.addAll(arrayOf("-c", count))
+            if (params.count > 0) {
+                cmd.addAll(arrayOf("-c", params.count.toString()))
             }
-            cmd.add(serverAddr)
+            cmd.add(params.server)
 
             val builder = ProcessBuilder()
             builder.command(cmd)
@@ -166,18 +200,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (on) {
-            button.text = resources.getString(R.string.btn_stop)
+            pingButton.text = resources.getString(R.string.btn_stop)
         } else {
             mThread = null
-            button.text = resources.getString(R.string.btn_start)
+            pingButton.text = resources.getString(R.string.btn_start)
         }
         errorMessage = ""
-        button.isClickable = true
+        pingButton.isClickable = true
     }
 
 
     private fun triggerTogglePing() {
-        button.isClickable = false
+        pingButton.isClickable = false
 
         val doEnable = mThread == null
         isThreadRunning = doEnable
@@ -188,15 +222,33 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun initTableView() {
+        tableLayout.removeAllViews()
+        val headerRow = layoutInflater.inflate(R.layout.result_row, tableLayout, false)
+        tableLayout.addView(headerRow)
+    }
+
+    private fun syncServerText() {
+        settingsButton.text = params.server
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val headerRow = layoutInflater.inflate(R.layout.result_row, tableLayout, false)
-        tableLayout.addView(headerRow)
+        syncServerText()
+        initTableView()
 
-        button.setOnClickListener {
+        clearButton.setOnClickListener {
+            initTableView()
+        }
+
+        pingButton.setOnClickListener {
             triggerTogglePing()
+        }
+
+        settingsButton.setOnClickListener {
+            showSettingsPopup()
         }
 
     }
