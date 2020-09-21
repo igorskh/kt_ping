@@ -182,7 +182,9 @@ class MainActivity : AppCompatActivity() {
                 errorMessage = try {
                     process.errorStream.bufferedReader().readLine()
                 } catch (e: IllegalStateException) {
-                    ""
+                    "IllegalStateException"
+                } catch (e: NullPointerException) {
+                    "NullPointerException"
                 }
             }
 
