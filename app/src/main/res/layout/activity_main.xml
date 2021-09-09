@@ -7,48 +7,30 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+    <GridLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/linearLayout" android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
-        <EditText
-                android:layout_width="0dp" android:layout_weight="1"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:id="@+id/textServer" android:textSize="12sp" android:singleLine="true"
-                android:inputType="textWebEditText" android:hint="@string/label_server"
-                android:autofillHints="@string/label_server" android:text="@string/value_default_server"/>
-        <EditText
-                android:layout_width="0dp"  android:layout_weight="0.5"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:id="@+id/textSize" android:textSize="12sp" android:singleLine="true"
-                android:inputType="number" android:hint="@string/label_size"
-                android:autofillHints="@string/label_size"/>
-        <EditText
-                android:layout_width="0dp" android:layout_weight="0.5"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:id="@+id/textInterval" android:textSize="12sp" android:singleLine="true"
-                android:hint="@string/label_interval"
-                android:autofillHints="@string/label_interval" android:inputType="numberDecimal"/>
-        <EditText
-                android:layout_width="0dp" android:layout_weight="0.5"
-                android:layout_height="40dp"
-                android:ems="10"
-                android:id="@+id/textCount" android:textSize="12sp" android:singleLine="true"
-                android:hint="@string/label_count"
-                android:autofillHints="@string/label_count" android:inputType="number" android:text="@string/default_count"/>
+            >
         <Button
+                android:textSize="12sp"
+                android:id="@+id/settingsButton" />
+        <Button
+                android:textSize="12sp"
                 android:text="@string/btn_start"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/button"
-                android:layout_weight="0.5"/>
-    </LinearLayout>
+                android:id="@+id/pingButton" />
+        <Button
+                android:textSize="12sp"
+                android:text="@string/clear"
+                android:id="@+id/clearButton" />
+    </GridLayout>
     <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"

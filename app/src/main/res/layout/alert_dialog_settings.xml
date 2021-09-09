@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_server"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            />
+    <EditText
+            android:id="@+id/addressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_server"
+            android:autofillHints=""
+            android:inputType=""
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_size"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+    <EditText
+            android:id="@+id/sizeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/label_size"
+            android:inputType="number"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_count"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+    <EditText
+            android:id="@+id/countText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/label_count"
+            android:inputType="number"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_interval"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+    <EditText
+            android:id="@+id/intervalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/label_interval"
+            android:inputType="numberDecimal"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp" />
+
+</LinearLayout>
